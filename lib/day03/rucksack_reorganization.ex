@@ -7,7 +7,7 @@ defmodule Day03.RucksackReorganization do
   Follow the rules to reorganize correctly all rucksacks.
 
   ## Examples
-    iex> Day03.RucksackReorganization.reorganize_rucksacks("/Users/d5lment/workspace/AOC/elr_AoC2022/lib/resources/inputs/day03/contents_rucksack_sample.txt")
+    iex> Day03.RucksackReorganization.reorganize_rucksacks("lib/resources/inputs/day03/contents_rucksack_sample.txt")
     157
   """
   def reorganize_rucksacks(path) do
@@ -18,7 +18,7 @@ defmodule Day03.RucksackReorganization do
       |> get_items_per_compartments()
       |> identify_duplicated_item()
     end)
-    |> Enum.map(fn x -> item_to_priority(x) end)
+    |> Enum.map(&item_to_priority/1)
     |> Enum.sum()
   end
 

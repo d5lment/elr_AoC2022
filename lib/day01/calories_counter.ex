@@ -6,7 +6,7 @@ defmodule Day01.CaloriesCounter do
 
   def read_list_of_calories do
     test_file =
-      "/Users/miriam.reyes/workspace/elixir/aoc2022/lib/resources/day01/day_01.txt"
+      "lib/resources/day01/day_01.txt"
 
     {:ok, contents} = File.read(test_file)
 
@@ -26,7 +26,7 @@ defmodule Day01.CaloriesCounter do
 
   def top_three_calories do
     test_file =
-      "/Users/miriam.reyes/workspace/elixir/aoc2022/lib/resources/inputs/day01/day_01.txt"
+      "lib/resources/inputs/day01/day_01.txt"
 
     {:ok, contents} = File.read(test_file)
 

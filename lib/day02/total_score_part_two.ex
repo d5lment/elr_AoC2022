@@ -4,7 +4,7 @@ defmodule Day02.TotalScorePartTwo do
   """
 
   def total_score() do
-    "/Users/d5lment/workspace/AOC/elr_AoC2022/lib/resources/inputs/day02/strategy_guide_part_two.txt"
+    "lib/resources/inputs/day02/strategy_guide_part_two.txt"
     |> get_guide()
     |> Enum.map(fn inputs ->
       inputs

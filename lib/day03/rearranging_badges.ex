@@ -8,7 +8,7 @@ defmodule Day03.RearrangingBadges do
   @doc ~S"""
   Creates a list of three MapSets with the unique types per rucksack in order to enable set operations.
   ## Examples
-    iex> Day03.RearrangingBadges.rearranging_badges("/Users/d5lment/workspace/AOC/elr_AoC2022/lib/resources/inputs/day03/contents_rucksack_sample.txt")
+    iex> Day03.RearrangingBadges.rearranging_badges("lib/resources/inputs/day03/contents_rucksack_sample.txt")
     70
   """
   def rearranging_badges(path) do
@@ -26,18 +26,18 @@ defmodule Day03.RearrangingBadges do
     iex> Day03.RearrangingBadges.getting_badget([MapSet.new(["F", "J", "M", "W", "c", "f", "g", "h", "p", "r", "s", "t", "v","w"]), MapSet.new(["D", "F", "G", "H", "L", "M", "N", "R", "S", "Z", "f", "j", "q","r", "s", "z"]), MapSet.new(["B", "P", "T", "V", "W", "d", "g", "m", "q", "r", "v", "w", "z"])])
     "r"
   """
-  def getting_badget([h | [h2 | [t2]]]) do
+  def getting_badget([rucksack1, rucksack2, rucksack3]) do
     [badget] =
-      h
-      |> MapSet.intersection(h2)
-      |> MapSet.intersection(t2)
+      rucksack1
+      |> MapSet.intersection(rucksack2)
+      |> MapSet.intersection(rucksack3)
       |> MapSet.to_list()
 
     badget
   end
 
   @doc ~S"""
-  Creates a list of three MapSets with the unique types per rucksack in order to enable set operations.
+  Creates a list of three MapSets with the unique types per rucksack in order to enable MapSet operations.
   ## Examples
     iex> Day03.RearrangingBadges.prepare_intersection(["vJrwpWtwJgWrhcsFMMfFFhFp","jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL","PmmdzqPrVvPwwTWBwg"])
     [
@@ -59,7 +59,7 @@ defmodule Day03.RearrangingBadges do
   Creates groups of three rucksacks from the input.
 
   ## Examples
-    iex> Day03.RearrangingBadges.total_items_by_group("/Users/d5lment/workspace/AOC/elr_AoC2022/lib/resources/inputs/day03/contents_rucksack_sample.txt")
+    iex> Day03.RearrangingBadges.total_items_by_group("lib/resources/inputs/day03/contents_rucksack_sample.txt")
     [
       ["vJrwpWtwJgWrhcsFMMfFFhFp",
       "jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
