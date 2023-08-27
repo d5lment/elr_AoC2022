@@ -3,10 +3,12 @@ name: Elixir Unit Tests
 on:
   push:
     branches:
-      - main  # Adjust this to your default branch
+      - '*'  # This triggers the workflow on all branches
+      #- main  # Adjust this to your default branch
   pull_request:
     branches:
-      - main  # Adjust this to your default branch
+      - '*'  # This triggers the workflow on all branches  
+      #- main  # Adjust this to your default branch
 
 jobs:
   test:
