@@ -1,0 +1,29 @@
+name: Elixir Unit Tests
+
+on:
+  push:
+    branches:
+      - main  # Adjust this to your default branch
+  pull_request:
+    branches:
+      - main  # Adjust this to your default branch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # You can change the runner environment
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set Up Elixir
+      uses: actions/setup-elixir@v1
+      with:
+        otp-version: 26.0  # Set the appropriate OTP version
+        elixir-version: 1.15.0  # Set the appropriate Elixir version
+
+    - name: Install Dependencies
+      run: mix deps.get
+
+    - name: Run Unit Tests
+      run: mix test
