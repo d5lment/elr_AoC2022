@@ -23,6 +23,37 @@ defmodule Day04.AssignmentPairs do
   end
 
   @doc """
+  In how many assignment pairs do the ranges overlap?
+  ## Examples
+    iex> Day04.AssignmentPairs.count_overlaps_per_ranges("lib/resources/inputs/day04/assignment_pairs_sample.txt")
+    4
+
+    iex> Day04.AssignmentPairs.count_overlaps_per_ranges("lib/resources/inputs/day04/assignment_pairs.txt")
+    808
+  """
+  def count_overlaps_per_ranges(path) do
+    path
+    |> read_pairs()
+    |> Enum.map(fn [[x, y], [x1, y1]] = _ranges ->
+      a = MapSet.new(x..y)
+      b = MapSet.new(x1..y1)
+
+      overlaps? =
+        a
+        |> MapSet.intersection(b)
+        |> MapSet.to_list()
+        |> Enum.empty?()
+
+      if overlaps? do
+        0
+      else
+        1
+      end
+    end)
+    |> Enum.sum()
+  end
+
+  @doc """
 
   ## Examples
     iex> Day04.AssignmentPairs.one_secction_fully_contain_other([[2, 4], [6, 8]])
